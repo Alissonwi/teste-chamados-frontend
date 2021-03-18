@@ -1,0 +1,116 @@
+<div *ngIf="!showCreateChamado" class="container">
+  <div class="row screen-title" style="width: 95%">Chamados</div>
+  <div class="row">
+      <div style="width: 25%; margin-right: 2%;">
+          <input type="text" placeholder="Procurar chamado" class="form-control"
+              style="height: 29px; border-radius: 4px; width: 100%;" [ngModel]='model' (ngModelChange)='changed($event)'>
+      </div>
+      <div class="col-container-button">
+          <button class="btn-form-default container-button" (click)="addChamado()">Adicionar Chamado</button>
+      </div>
+  </div>
+
+  <div class="row item-list" style="width: 95%; font-weight: 900; margin-top: 3%;">
+      <div style="width: 12%;">Titulo</div>
+      <div style="width: 22%;">Descrição</div>
+      <div style="width: 10%;">Status</div>
+      <div style="width: 16%;">Data Inclusão</div>
+      <div style="width: 16%;">Data Conclusão</div>
+      <div style="width: 20%;">Comentários</div>
+  </div>
+
+  <div *ngFor="let chamado of chamados" class="row item-list" style="width: 95%; animation: slide-in 0.4s ease;">
+      <div style="font-weight: 400; width: 12%; margin-top: auto; margin-bottom: auto;">
+          {{chamado.titulo}}
+        </div>
+        <div class="description-text">
+          {{chamado.descricao}}
+        </div>
+        <div style="width: 10%; margin-top: auto; margin-bottom: auto;"> 
+          <div (click)="changeStatus(chamado)" [ngStyle]="{'background': getStatusColorByCode(chamado.status)}" style="border-radius: 4px; height: 3.5vh; cursor: pointer;">
+            <div class="status-tag">{{chamado.statusPT}}</div>
+          </div>
+        </div>
+        <div style="font-weight: 400; margin-top: auto; margin-bottom: auto; text-align: center; width: 16%;">
+          {{chamado.dataInclusao}}
+        </div>
+        <div *ngIf='chamado.dataConclusao' style="font-weight: 400; margin-top: auto; margin-bottom: auto; text-align: center; width: 16%;">
+          {{chamado.dataConclusao}}
+        </div>
+        <div *ngIf='!chamado.dataConclusao' style="font-weight: 400; margin-top: auto; margin-bottom: auto; text-align: center; width: 16%;">-</div>
+      <div style="font-weight: 400; text-align: right; width: 20%; margin-bottom: auto; margin-top: auto;">
+        <button class="btn-form-default item-list" style="background-color: white" (click)="openTemplateFromReference(chamado)">Ver Comentários</button>
+      </div>
+    </div>
+
+    <div *ngIf="noResult" style="width: 95%; animation: slide-in 0.4s ease; margin-top: 5%">
+      <div class="col-12" style="text-align: center">Sem Resultados</div>
+    </div>
+</div>
+
+<div *ngIf="showCreateChamado" class="container">
+  <div class="row screen-title" style="width: 95%">Criar Novo Chamados</div>
+  <div class="row" style="margin-bottom: 1%;">
+    <div class="input-text">Titulo</div>
+    <div class="input-text">Descrição</div>
+  </div>
+  <div class="row">
+    <input type="text" [(ngModel)]="newTitulo" placeholder="Titulo" required name="titulo"
+      class="form-control form-input pull-right" style="margin-right: 9%;">
+    <input type="text" [(ngModel)]="newDescricao" placeholder="Descrição" required name="descricao"
+      class="form-control form-input pull-right" >
+  </div>
+  <div class="row" style="margin-top: 2%;">
+    <button class="btn-form-delete" style="margin-right: 48%;" (click)="return()">Voltar</button>
+    <button class="btn-form-update" (click)="saveNewChamado()">Salvar</button>
+  </div>
+  
+</div>
+
+<ng-template #detalhesModal let-c="close" let-d="dismiss">
+
+    <div class="modal-header">
+        <h4 class="beta-modal-title" style="padding-top: 3%;">Detalhes do chamado</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row item-list" style="width: 80%; font-weight: 900; margin-left: 10%;">
+            <div style="width: 12%;">Comentário</div>
+        </div>
+        <div *ngFor="let detalhe of detalhes" class="row item-list" style="width: 80%; animation: slide-in 0.4s ease; margin-left: 10%;">
+            <div>{{detalhe.comentario}}</div>
+        </div>
+        <div *ngIf="detalhes.length == 0" style="width: 95%; animation: slide-in 0.4s ease; margin-top: 5%">
+          <div class="col-12" style="text-align: center">Sem Resultados</div>
+        </div>
+
+        <div class="row" style="margin-top: 5%; width: 80%; margin-left: 10%;">
+            <div style="width: 100%;">
+                <input type="text" placeholder="Adicionar novo comentário" class="form-control"
+                style="height: 80px; border-radius: 4px; width: 100%;" [(ngModel)]='newInput'>
+            </div>
+        </div>
+    </div>
+
+    <div class="row modal-footer">
+        <button class="md-close btn-form-default" style="margin-left: 10%;" (click)="closeModal()">Fechar</button>
+        <button class="btn-form-default container-button" style="margin-left: 13%;" (click)="addComentario()">Adicionar Comentário</button>
+    </div>
+
+
+</ng-template>
+<div id="snackbar" [ngClass]="{'show': isSnackbarVisible}">{{snackbarMessage}}</div>
+<div class="md-modal md-effect-1" [ngClass]="[modalVisible == false ? 'md-modal md-effect-1 md-hide' : 'md-modal md-effect-1 md-show']"
+    id="modal-1">
+    <div class="md-content">
+        <div [ngClass]="{'no-padding': disablePending}">
+            <ng-container *ngTemplateOutlet="selectedTemplate"></ng-container>
+        </div>
+    </div>
+</div>
+<div class="md-overlay"></div>
+
+<div *ngIf="loading" id="loader"></div>
+<div *ngIf="loading" id="overlay">
+  <div id="loader-title">{{loaderText}}</div>
+</div>

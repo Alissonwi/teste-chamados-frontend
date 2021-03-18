@@ -1,0 +1,421 @@
+.form-control:focus {
+    border-color: #979797;
+    box-shadow: 0 0 5px rgba(151, 151, 151, 35);
+}
+
+.form-control::placeholder {
+    color: #979797
+}
+
+::ng-deep .modal-content{
+    border-radius: 0px;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+::ng-deep .modal-open {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  
+  .modal-header{
+    height: 40px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.modal-header > button{
+    width: 50
+}
+
+.modal-footer{
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.modal-body {
+    max-height: calc(100% - 200px);
+    border-radius: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+.modal-select {
+    font-size: 0.7485rem;
+    font-family: Lato;
+    border-radius: 4px;
+    text-transform: uppercase;
+    min-width: 100%
+}
+
+.request-meeting-form-label {
+    font-size: 0.7485rem;
+    text-transform: uppercase;
+}
+
+.request-meeting-name-label{
+    font-weight: 200;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.close{
+    text-transform: uppercase;
+    padding-bottom: 0px;
+    padding-top: 10px;
+}
+
+.beta-modal-title {
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 0px;
+    font-weight: 900;
+    width: 100%;
+    text-align: center;
+    margin-right: 50px;
+    
+}
+
+p {
+    text-align: justify
+}
+
+.md-hide{
+    display: none
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+.row{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.md-modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 320px;
+	height: auto;
+	z-index: 2000;
+	visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.md-show {
+	visibility: visible;
+}
+
+.md-content > div {
+	padding: 0px 0px 15px;
+	margin: 0;
+	font-weight: 300;
+	font-size: 1.15em;
+}
+
+.md-effect-1 .md-content {
+	-webkit-transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	-ms-transform: scale(0.7);
+	transform: scale(0.7);
+	opacity: 0;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.md-show.md-effect-1 .md-content {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+}
+
+.md-content {
+	color: #232323;
+	background: white;
+	position: relative;
+	border-radius: 6px;
+	margin: 0 auto;
+	min-width: 630px;
+}
+
+.md-content h3 {
+	margin: 0;
+	padding: 0.4em;
+	text-align: center;
+	font-size: 1.25em;
+	font-weight: 900;
+	font-family: 'Lato', sans-serif;
+	opacity: 0.8;
+	line-height: 1.75;
+	background: rgba(0,0,0,0.1);
+	border-radius: 3px 3px 0 0;
+	text-transform: uppercase;
+}
+
+.md-content > div {
+	padding: 0px 0px 15px;
+	margin: 0;
+	font-weight: 300;
+	font-size: 1.15em;
+}
+
+.md-content > div p {
+	margin: 0;
+	text-align: justify;
+	padding: 10px 0;
+}
+
+.md-content > div ul {
+	margin: 0;
+	padding: 0 0 30px 20px;
+}
+
+.md-content > div ul li {
+	padding: 5px 0;
+}
+
+.md-content button {
+	display: block;
+	margin: 0 auto;
+	border-radius: 6px;
+}
+
+.md-overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	opacity: 0;
+	background: rgba(15,15,15,0.8);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.md-show ~ .md-overlay {
+	opacity: 1;
+	visibility: visible;
+}
+
+#snackbar {
+    visibility: hidden;
+    /* Hidden by default. Visible on click */
+    min-width: 250px;
+    /* Set a default minimum width */
+    margin-left: -125px;
+    /* Divide value of min-width by 2 */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black background color */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 2px;
+    /* Rounded borders */
+    padding: 16px;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 1;
+    /* Add a z-index if needed */
+    left: 50%;
+    /* Center the snackbar */
+    bottom: 30px;
+    /* 30px from the bottom */
+    z-index: 1000002;
+}
+
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+
+#snackbar.show {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+  However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+
+/* Animations to fade the snackbar in and out */
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+.container {
+    width: 65vw;
+    font-weight: 400;
+    margin-left: 17%;
+}
+
+.col-container-button{
+    text-align: center
+}
+
+.btn-form-update {
+    background-color: #52b303;
+    min-height: 35px;
+    width: 190px;
+    color: white;
+    padding: 0 30px;
+    letter-spacing: 0px;
+    border: solid 1px #b9baba;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.btn-form-delete {
+    background-color: #B50000;
+    width: 190px;
+    min-height: 35px;
+    color: white;
+    padding: 0 30px;
+    letter-spacing: 0px;
+    border: solid 1px #b9baba;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.btn-form-default {
+    background-color: #f8f8f8;
+    min-height: 35px;
+    width: 190px;
+    letter-spacing: 0px;
+    color: #232323;
+    border: solid 1px #b9baba;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.container-button{
+    margin: auto;
+    width: 180px;
+    text-transform: initial
+}
+
+.input-group-text {
+    color: #232323;
+    font-size: 14px;
+    background-color: #F8F8F8
+}
+
+.small-loader {
+    flex: none;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    /* Light grey */
+    border-top: 5px solid #575757;
+    /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 0.5s linear infinite;
+}
+
+#loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 64px;
+    height: 64px;
+    margin: -32px 0 0 -32px;
+    border: 3px solid #E7E7E7;
+    border-radius: 50%;
+    border-top: 3px solid #575757;
+    z-index: 1000001;
+    -webkit-animation: spin 0.5s linear infinite;
+    animation: spin 0.5s linear infinite;
+    background-blend-mode: multiply;
+}
+
+#loader-title {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    top: 57.5%;
+    z-index: 1000001;
+    color: black;
+    font-size: 0.7485rem;
+    font-family: Lato;
+    font-weight: 400;
+    text-transform: uppercase
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    z-index: 1000000;
+}
